@@ -6,6 +6,8 @@ const Form = () => {
   const [data, setData] = useState([]);
   const [amount, setAmount] = useState("");
   const [length, setLength] = useState("");
+  const [am, setAm]=useState("")
+  const [long, setLong]=useState('')
   const [selectedValue, setSelectedValue] = useState("1");
   let [text, setText] = useState("");
 
@@ -17,8 +19,17 @@ const Form = () => {
     // setData({[am]: e.target.value})
   };
 
+  const handleChangeAm=(e)=>{
+    setAm(e.target.value)
+  }
+
+  const handleChangeLong=(e)=>{
+    setLong(e.target.value)
+  }
+
   const handleChangeLength = (e) => {
     setLength(e.target.value);
+  
   };
 
   const handleSubmit = async (e) => {
@@ -27,8 +38,67 @@ const Form = () => {
     switch (selectedValue) {
       case "1":
         if (selectedValue === "1") {
-          if (amount === "7" && length === "short") {
+          if (amount === "1" && length === "short") {
             text = "Ошибок не обнаружено, загрузка системы продолжается";
+            setText(text);
+          }
+          else if(amount==='2' && length === "short"){
+            text = "Ошибка четности оперативной памяти";
+            setText(text);
+          }
+          else if(amount==='3' && length === "short"){
+            text = "Неисправность первых 64 Кбайт оперативной памяти";
+            setText(text);
+          }
+          else if(amount==='4' && length === "short"){
+            text = "Неисправен системный таймер";
+            setText(text);
+          }
+          else if(amount==='5' && length === "short"){
+            text = "Неисправность процессора";
+            setText(text);
+          }
+          else if(amount==='6' && length === "short"){
+            text = "Неисправность контроллера клавиатуры";
+            setText(text);
+          }
+          else if(amount==='7' && length === "short"){
+            text = "Неисправность системной платы";
+            setText(text);
+          }
+          else if(amount==='8' && length === "short"){
+            text = "Ошибка видеопамяти";
+            setText(text);
+          }
+          else if(amount==='9' && length === "short"){
+            text = "Неправильная контрольная сумма BIOS";
+            setText(text);
+          }
+          else if(amount==='10' && length === "short"){
+            text = "Ошибка записи в СМОS-память";
+            setText(text);
+          }
+          else if(amount==='11' && length === "short"){
+            text = "Ошибка кэш-памяти";
+            setText(text);
+          }
+          else if((amount==='1' &&length==='long') && (am==='2'&& long === "short")){
+
+                  text = "Неисправен видеоадаптер";
+                  setText(text);
+              }
+          
+          
+          else if((amount==='1' && length === "long") && (am==='3'&&long==='short')){
+            text = "Неисправен видеоадаптер";
+            setText(text);
+          }
+          else if((amount==='2' && length === "long") && (am==='2'&&long==='short')){
+            text = "Ошибка контроллера гибких дисков";
+            setText(text);
+          }
+          else if(amount==="" && length === "" && am==='' && long===''){
+            text = "Неисправен блок питания или системная плата";
             setText(text);
           }
         } else {
@@ -72,11 +142,13 @@ const Form = () => {
       alert("Please, enter length");
       return;
     }
-    setData([...data, { amount, length, text }]);
+    setData([...data, { amount, length, text, am, long }]);
 
     setText("");
     setAmount("");
     setLength("");
+    setAm('');
+    setLong('')
   };
 
   const handleChange = (e) => {
@@ -104,11 +176,27 @@ const Form = () => {
           onChange={handleChangeAmount}
           placeholder="Enter Amount..."
         />
+        
         <input
           value={length}
           type="text"
           name="length"
           onChange={handleChangeLength}
+          placeholder="Enter length..."
+        />
+        <input
+          value={am}
+          type="number"
+          className={styles.inputAmount}
+          name="am"
+          onChange={handleChangeAm}
+          placeholder="Enter Amount..."
+        />
+        <input
+          value={long}
+          type="text"
+          name="long"
+          onChange={handleChangeLong}
           placeholder="Enter length..."
         />
       </div>
@@ -127,13 +215,16 @@ const Form = () => {
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
-                  marginBottom: 20,
+                  marginBottom: 20
                 }}
               >
                 <span key={uuidv4()}>{++a}</span>
                 <span key={uuidv4()}>{el.amount}</span>
                 <span key={uuidv4()}>{el.length}</span>
-                {<span style={{ width: 20 }}>{el.text}</span>}
+                {/* <span key={uuidv4()}>{++a}</span> */}
+                <div key={uuidv4()}>{el.am}</div>
+                <span key={uuidv4()}>{el.long}</span>
+                {<span style={{ width: '10%'}}>{el.text}</span>}
               </div>
             </>
           );
