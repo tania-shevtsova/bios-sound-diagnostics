@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/bios-sound-diagnostics/static/css/main.e6327e15.chunk.css",
+    "main.js": "/bios-sound-diagnostics/static/js/main.b609d9af.chunk.js",
+    "main.js.map": "/bios-sound-diagnostics/static/js/main.b609d9af.chunk.js.map",
+    "runtime-main.js": "/bios-sound-diagnostics/static/js/runtime-main.a4b2e8e3.js",
+    "runtime-main.js.map": "/bios-sound-diagnostics/static/js/runtime-main.a4b2e8e3.js.map",
+    "static/js/2.fc463979.chunk.js": "/bios-sound-diagnostics/static/js/2.fc463979.chunk.js",
+    "static/js/2.fc463979.chunk.js.map": "/bios-sound-diagnostics/static/js/2.fc463979.chunk.js.map",
+    "index.html": "/bios-sound-diagnostics/index.html",
+    "precache-manifest.a9666e08f3ff19d69bc4875dfbcd4da1.js": "/bios-sound-diagnostics/precache-manifest.a9666e08f3ff19d69bc4875dfbcd4da1.js",
+    "service-worker.js": "/bios-sound-diagnostics/service-worker.js",
+    "static/css/main.e6327e15.chunk.css.map": "/bios-sound-diagnostics/static/css/main.e6327e15.chunk.css.map",
+    "static/js/2.fc463979.chunk.js.LICENSE.txt": "/bios-sound-diagnostics/static/js/2.fc463979.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a4b2e8e3.js",
+    "static/js/2.fc463979.chunk.js",
+    "static/css/main.e6327e15.chunk.css",
+    "static/js/main.b609d9af.chunk.js"
+  ]
+}
