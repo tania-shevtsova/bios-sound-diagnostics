@@ -1,10 +1,15 @@
 .list {
-    width: 500px;
+    width: 700px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+   
     list-style: none;
     margin-bottom: 20px;
+}
+
+.list > li:not(:last-child){
+    margin-bottom: 50px;
 }
 
 .input {
@@ -16,25 +21,24 @@
     margin-bottom: 20px;
 }
 
-.newItems {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    width: 482px;
-    margin: 0 auto;
-    margin-left: 32%;
+.newItems:not(:last-child){
+    margin-right: 10%;
 }
-
 .inputAmount {
     margin-bottom: 20px;
+}
+
+.inputAmount:nth-last-child(2) {
+    margin-top: 20px;
 }
 
 .button {
     display: block;
     margin: 0 auto;
-    width: 200px;
-    margin-top: 20px;
-    height: 50px;
+    width: 298px;
+    height: 60px;
+    position: absolute;
+    left: 40%;
 }
 
 .selectButton {
@@ -50,8 +54,24 @@
 .selectInput {
     width: 150px;
     height: auto;
-    position: absolute;
-    top: 20%;
-    left: 60%;
+    margin-bottom: 30px;
+    margin-top: 10px;
 }
+
+.random {
+    display: flex;
+    justify-content: space-between;
+    /* position: absolute; */
+    /* top: 60%;
+    left: 64%; */
+}
+
+.random > div{
+    margin-bottom: 30px;
+}
+
+.some {
+    margin-left: 25%;
+}
+
 
