@@ -15,19 +15,7 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(2),
       textAlign: 'center',
       color: theme.palette.text.secondary,
-    },
-    // root: {
-    //     '& > *': {
-    //       margin: theme.spacing(1),
-    //       width: '25ch',
-    //       flexGrow: 1,
-    //     },
-    //   },
-    //   paper: {
-    //     padding: theme.spacing(2),
-    //     textAlign: 'center',
-    //     color: theme.palette.text.secondary,
-    //   }
+    }
   }));
 
 const Form = () => {
@@ -45,8 +33,6 @@ const Form = () => {
 
   const handleChangeAmount = (e) => {
     setAmount(e.target.value);
-    // const am=e.target.name;
-    // setData({[am]: e.target.value})
   };
 
   const handleChangeAm=(e)=>{
@@ -142,10 +128,7 @@ const Form = () => {
             text = "Ошибок не обнаружено, загрузка системы продолжается";
             setText(text);
           }
-          else if(amount==='1' && length === "long"){
-            text = "Ошибка оперативной памяти";
-            setText(text);
-          }
+         
           else if(amount==='1' && length === "long" && am==='2' && long==='short'){
             text = "Видеоадаптер не обнаружен или ошибка видеопамяти";
             setText(text);
@@ -166,6 +149,10 @@ const Form = () => {
 
           else if(amount==='2' && length === "short"){
             text = "Обнаружена некритическая ошибка. Этот сигнал обычно сопровождается сообщением на экране с более конкретным описанием ошибки. Пользователь может продолжить загрузку после нажатия F1 или войти в BIOS SEТUP с помощью клавиши Delete";
+            setText(text);
+          }
+          else if(amount==='1' && length === "long"){
+            text = "Ошибка оперативной памяти";
             setText(text);
           }
 
@@ -259,6 +246,10 @@ const Form = () => {
     setSelectedValue(e.target.value);
   };
 
+  const handleReset=(e)=>{
+      e.preventDefault();
+      setData([])
+  }
   
 
   return (
@@ -282,42 +273,6 @@ const Form = () => {
       <TextField style={{minWidth: 298}} id="outlined-basic" value={long} type="text" name="long" onChange={handleChangeLong} label="Enter length..." variant="outlined" />
 
     </form>
-
-      {/* <div className={styles.input}> */}
-
-        {/* <input
-          value={amount}
-          type="number"
-          className={styles.inputAmount}
-          name="amount"
-          onChange={handleChangeAmount}
-          placeholder="Enter Amount..."
-        /> */}
-        
-        {/* <input
-          value={length}
-          type="text"
-          name="length"
-          onChange={handleChangeLength}
-          placeholder="Enter length..."
-        /> */}
-        {/* <input
-          value={am}
-          type="number"
-          className={styles.inputAmount}
-          name="am"
-          onChange={handleChangeAm}
-          placeholder="Enter Amount..."
-        /> */}
-        {/* <input
-          value={long}
-          type="text"
-          name="long"
-          onChange={handleChangeLong}
-          placeholder="Enter length..."
-        /> */}
-      {/* </div> */}
-
 
       <div className={classes.root}>
       <Grid container spacing={3}>
@@ -360,9 +315,9 @@ const Form = () => {
        {el.long!=='' && <Grid item xs={3}>
           <Paper className={classes.paper}>{el.long}</Paper>
         </Grid>}
-        <Grid item xs={3}>
+        {el.text!=='' && <Grid item xs={3}>
           <Paper className={classes.paper}>{el.text}</Paper>
-        </Grid>
+        </Grid>}
         </Grid>
               </div>
             </>
@@ -371,6 +326,9 @@ const Form = () => {
       </span>
       <div className={classes.root}>
       <Button variant="contained" type="submit" onClick={handleSubmit} className={styles.button}>Submit</Button>
+      </div>
+      <div className={classes.root}>
+      <Button variant="contained" style={{marginTop: 20}} type="submit" onClick={handleReset} className={styles.button}>Reset</Button>
       </div>
     </>
   );
